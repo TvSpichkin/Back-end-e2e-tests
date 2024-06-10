@@ -4,6 +4,11 @@ import {МодСоздЧаст} from "../../ист/особенности/час
 
 const Путь = decodeURI(ПутиМарш.частицы);
 
+export function создЧаст(ид: number, название: string) {
+    if(ид) return {ид: ид, название: название};
+    else return {название: название};
+}
+
 export const частТестУправ = {
     async добЧаст(д: МодСоздЧаст, ожидСтатусКод: number = 201) {
         const ответ = await запрос(пр).post(Путь).send(д).expect(ожидСтатусКод);

@@ -4,6 +4,11 @@ import {МодСоздИссл} from "../../ист/особенности/исс
 
 const Путь = decodeURI(ПутиМарш.исследователи);
 
+export function создИссл(ид: number, имя: string) {
+    if(ид) return {ид: ид, имя: имя};
+    else return {имя: имя};
+}
+
 export const исслТестУправ = {
     async добИссл(д: МодСоздИссл, ожидСтатусКод: number = 201) {
         const ответ = await запрос(пр).post(Путь).send(д).expect(ожидСтатусКод);
